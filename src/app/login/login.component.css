@@ -1,8 +1,29 @@
-
-.main-container{
-    justify-content: center;
-    align-items: center; 
-    flex-direction: column;
-    height:auto;
+.mat-card-image{
+    margin-top: 1rem;
+    width: 20%;
+    height: auto;
 }
 
+.mat-card-title{
+    margin-top: 1.5em;
+    font-size: 1.75rem;
+}
+.mat-card-actions{
+    margin-bottom: 2.5em!important;
+}
+.mat-form-field{
+    width: 70%;
+    align-items: center;
+    text-align: center;
+}
+.mat-input-element{
+    width: 100%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+}
