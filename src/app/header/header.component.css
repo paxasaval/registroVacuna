@@ -1,0 +1,34 @@
+
+.main-title{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1em;
+}
+.icon-title{
+    color: var(--primary);
+    margin-left: 2rem;
+    margin-top: 0.75rem;
+    width: 4rem;
+    height: 4rem;
+}
+.title{
+    flex-grow: 4;
+    color: var(--primary);
+    font-size: 4em;
+    line-height: normal;
+    letter-spacing: 1rem;
+    padding-left: 1em;
+}
+.btns-title{
+    margin-top: 1rem;
+    display: flex;
+    flex-grow: 2;
+    justify-content: space-around;
+}
+.btn-title{
+    height: 2rem;
+    background-color: var(--primary);
+    width: 40%;
+    color: white;
+}

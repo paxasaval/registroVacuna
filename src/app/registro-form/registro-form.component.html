@@ -1,0 +1,109 @@
+<div class="main">
+    <div class="column left">
+        <mat-card class='card vacuna-form'>
+            <mat-card-header>
+                <mat-card-title>FORMULARIO VACUNACION</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <p>Tipo de Vacuna</p>
+                    <mat-form-field class="form-select" appearance="fill">
+                        <mat-select class="select-vacuna">
+                            <mat-option  *ngFor="let vacuna of vacunas"
+                                value="vacuna">{{vacuna.nombreVacuna}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <p>Dosis</p>
+                    <mat-radio-group aria-label="Selecione una dosis">
+                        <mat-radio-button value="1">Primera Dosis</mat-radio-button>
+                        <mat-radio-button value="2">Segunda Dosis</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>Registrar</button>
+            </mat-card-actions>
+        </mat-card>
+        <mat-card class='card profesional-form'>
+            <mat-card-header>
+                <mat-card-title>Informamcin de Vacunante</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="column column-card column-label">
+                        <p>Nro Cedula</p>
+                        <p>Nombre</p>
+                        <p>Apellido</p>
+                    </div>
+                    <div class="column column-card">
+                        <p>{{profesional.c_i}}</p>
+                        <p>{{profesional.nombres}}</p>
+                        <p>{{profesional.apellidos}}</p>
+                    </div>
+                    <div class="column column-card">
+                        <img class="img-user" src="./../../assets/Asset 6@4x 1.png" alt="">
+                    </div> 
+                </div>
+            </mat-card-content>
+            <mat-card-actions></mat-card-actions>
+        </mat-card>
+    </div>
+    <div class="column right">
+        <mat-card class='card paciente-card'>
+            <mat-card-header>
+                <mat-card-title>Informaion del Paciente</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="column column-card column-label">
+                        <p>Nro Cedula:</p>
+                        <p>Nombres:</p>
+                        <p>Apellidos:</p>
+                        <p>Lugar de Residencia:</p>
+                        <p>Fecha de Nacimiento:</p>
+                        <p>Sexo:</p>
+                    </div>
+                    <div class="column column-card column-data">
+                        <p>{{paciente.c_i}}</p>
+                        <p>{{paciente.nombres}}</p>
+                        <p>{{paciente.apellidos}}</p>
+                        <p>{{paciente.domicilio}}</p>
+                        <p>{{paciente.fecha_nacimiento}}</p>
+                        <p>{{paciente.sexo}}</p>
+                    </div>
+                    <div class="column column-card">
+                        <img class="img-user" src="./../../assets/Asset 6@4x 1.png" alt="">
+                    </div> 
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+        </mat-card>
+        <mat-card class='card info-recinto'>
+            <mat-card-header>
+                <mat-card-title>Informacion de Vacunacion</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="column column-card column-label">
+                        <p>Ciudad:</p>
+                        <p>Provincia:</p>
+                        <p>Recinto:</p>
+                    </div>
+                    <div class="column column-card column-data">
+                        <p>{{centro.ciudad}}</p>
+                        <p>{{centro.provincia}}}</p>
+                        <p>{{centro.recinto}}</p>
+                    </div>
+                    <div class="column column-card">
+                        <img class="img-user" src="./../../assets/Asset 6@4x 1.png" alt="">
+                    </div> 
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

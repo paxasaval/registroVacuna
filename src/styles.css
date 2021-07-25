@@ -1,1 +1,68 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --primary: #1AA7EE;
+    --bg-main: linear-gradient(180deg, #FFFFFF 0%, #8DBFD9 100%);
+}
+
+html, body { height: 100%; }
+body { margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background: var(--bg-main);
+}
+.card{
+    width: 40vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 25%;
+    height: 100%;
+}
+.mat-card{
+    background-color: #FFFFFF;
+    color: black;
+    box-shadow: 4px 4px 29px 6px rgba(0, 0, 0, 0.25)!important;
+    border-radius: 11px;
+}
+input{
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 11px;
+    height: 2.5em;
+}
+.mat-input-element{
+    caret-color: var(--primary);
+}
+.mat-button{
+    background-color: var(--primary);
+    color:#FFFFFF;
+}
+.mat-card-header{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.mat-option-text{
+    color: var(--primary);
+}
+.mat-form-field.mat-focused .mat-form-field-label{
+    color: var(--primary);
+}
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick{
+    color: black;
+    border: none;
+}
+.mat-focused{
+    color: black;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+    color: var(--primary);
+}
+.mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: var(--primary);
+}
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    border-radius: 4px 4px 0 0;
+    padding: 0;
+}
+::ng-deep .mat-form-field-placeholder{
+    color:red;
+}

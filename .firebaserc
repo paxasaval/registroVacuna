@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "registrovacunasfs": {
+      "hosting": {
+        "registro-vacuna": [
+          "registrovacunasfs"
+        ]
+      }
+    }
+  }
+}

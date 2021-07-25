@@ -1,0 +1,9 @@
+:host{
+    background: var(--bg-main);
+    height: 100vh;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
