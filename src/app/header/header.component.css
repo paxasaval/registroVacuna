@@ -20,15 +20,25 @@
     letter-spacing: 1rem;
     padding-left: 1em;
 }
-.btns-title{
-    margin-top: 1rem;
-    display: flex;
-    flex-grow: 2;
-    justify-content: space-around;
-}
 .btn-title{
     height: 2rem;
     background-color: var(--primary);
     width: 40%;
     color: white;
+}
+.user-icon{
+    border-radius: 50%;
+    height: 5.5vh;
+    width: 5vh;
+    margin: 0;
+}
+.user-info{
+    flex-grow: 2;
+    display: flex;
+    justify-content: flex-end;
+    height: auto;
+    align-items: flex-start;
+}
+.user{
+    margin: 0 1rem;
 }

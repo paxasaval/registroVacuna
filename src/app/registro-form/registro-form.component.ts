@@ -23,6 +23,7 @@ export class RegistroFormComponent implements OnInit {
   profesional: Profesional = {}
   paciente: Paciente = {};
   centro: Centro = {};
+  profesionales: any[] = []
 
   idPaciente = '';
 
@@ -59,7 +60,18 @@ export class RegistroFormComponent implements OnInit {
       fecha_nacimiento: 'lwkdfadldkds',
       sexo:"sdlmfladsdkm"
     }
-    console.log(this.vacunas)
+    console.log(this.vacunas)    
+    this.profesionalService.getAllProfesional().subscribe(
+      result =>{
+        this.profesionales = result
+        this.profesional = this.profesionales[0]
+      },
+      error => {
+        console.log(error)
+      }
+    )
+    
+
   /* 
     this.vacunaService.getAllVacuna().subscribe(
       result =>{

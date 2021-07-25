@@ -1,3 +1,5 @@
+import { ProfesionalesService } from './../service/profesionales.service';
+import { Profesional } from './../models/profesional';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  profesional: Profesional= {
+    nombres: 'Sofia Becerra'
+  }
+
+  constructor(private profesionalService: ProfesionalesService) { }
 
   ngOnInit(): void {
+
+    /*
+      this.profesionalService.getProfesionalById().subscribe(
+        result => {
+          console.log(result)
+          this.profesional = result
+        })
+
+
+    */
+    this.profesionalService.getProfesionalById()
   }
+
 
 }

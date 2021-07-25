@@ -13,6 +13,7 @@ import { RegistroFormComponent } from './registro-form/registro-form.component';
 //firebase
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from '../environments/environment'
+import { AngularFireModule } from '@angular/fire'
 //service
 import { FirebaseService } from './service/firebase.service'
 
@@ -29,7 +30,7 @@ import { FirebaseService } from './service/firebase.service'
   imports: [
     BrowserModule,
     //firebase
-    //AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     //
     AppRoutingModule,

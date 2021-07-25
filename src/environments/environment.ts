@@ -5,7 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    //pegar codigo de firebase var config
+    apiKey: "AIzaSyAttKfCFl_F_qs-EAKmILcebSWHX9yR9Kg",
+    authDomain: "registrovacunasfs.firebaseapp.com",
+    databaseURL: "https://registrovacunasfs-default-rtdb.firebaseio.com",
+    projectId: "registrovacunasfs",
+    storageBucket: "registrovacunasfs.appspot.com",
+    messagingSenderId: "766955098173",
+    appId: "1:766955098173:web:10d9c79e84009c3e7ada54"
   }
 };
 
