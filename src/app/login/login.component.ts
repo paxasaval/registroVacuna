@@ -8,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
   paciente = '';
+  c_i = "";
+  pass = "";
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  login(){
+
+  }
 }

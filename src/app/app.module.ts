@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { RegistroVacunaComponent } from './registro-vacuna/registro-vacuna.component';
 import { RegistroComponent } from './registro/registro.component';
 import { RegistroFormComponent } from './registro-form/registro-form.component';
+import { FormsModule } from '@angular/forms';
 //firebase
 import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from '../environments/environment'
@@ -28,6 +29,7 @@ import { FirebaseService } from './service/firebase.service'
     RegistroFormComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     //firebase
     AngularFireModule.initializeApp(environment.firebase),

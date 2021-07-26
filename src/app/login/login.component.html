@@ -10,24 +10,27 @@
                     <div class="input-form">
                         <div class="input">
                             <mat-form-field>
-                                <input matInput type="text">
+                                <label>Cedula del vacunante</label>
+                                <input matInput placeholder="Cedula del vacunante"  ngtype="text" [(ngModel)]="c_i" >
                             </mat-form-field>
+                            
                         </div>
                         <div class="input">
                             <mat-form-field>
-                                <input matInput type="text">
+                                <label>Contrase単a</label>
+                                <input matInput  placeholder="Contrase単a" ngtype="text" [(ngModel)]="pass">
                             </mat-form-field>
                         </div>
                     </div>
                     <div class="button-form">
-                        <button mat-button>Iniciar</button>
-                        <p>¿No tienes una contraseña?</p>
+                        <button mat-button (click)="login()">Iniciar</button>
+                        <p>多No tienes una contrase単a?</p>
                         <button mat-button>Registrate aqui</button>
                     </div>
                 </div>
                 
                 <div class="column righ-column">
-                    <img src="./../../assets/Asset 6@4x 1.png" alt="">
+                    <img class="img-login" src="./../../assets/Asset 6@4x 1.png" alt="">
                 </div>
     
             </div>

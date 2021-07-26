@@ -5,25 +5,65 @@
 }
 
 .mat-card-title{
-    margin-top: 1.5em;
+    margin-top: .5em;
     font-size: 1.75rem;
-}
-.mat-card-actions{
-    margin-bottom: 2.5em!important;
+    color: #fff;
+    letter-spacing: 0.115em;
 }
 .mat-form-field{
-    width: 70%;
+    width: 100%;
     align-items: center;
     text-align: center;
 }
 .mat-input-element{
     width: 100%;
 }
+.mat-card-content{
+    padding-bottom: 2.75rem;
+    background-color: #fff;
+}
+.card{
+    width: auto;
+    margin-top: 10%;
+    height: 60vh;
+    width: 50vw;
+    padding: 0;
+    background-color: var(--primary);
+}
 .row{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 .column{
     display: flex;
     flex-direction: column;
+    padding: 0 1em;
+    width: 50%;
+}
+.left-column{
+    justify-content: space-evenly;
+    margin: 2em;
+    align-items: center;
+}
+.left-column div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 90%;
+}
+.img-login{
+    height: 50vh;
+}
+.input-form{
+    align-items: center;
+}
+.button-form{
+    justify-content: center;
+    align-items: center;
+}
+.button-form *{
+    margin-top: 1em;
+    width: 60%;
 }
