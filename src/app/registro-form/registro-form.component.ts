@@ -40,14 +40,8 @@ export class RegistroFormComponent implements OnInit {
     private pacienteService: PacienteService) { }
 
   ngOnInit(): void {
-    this.route
-      .queryParams
-      .subscribe(params => {
-        this.idPaciente = params['Paciente']
-        console.log('Query param page: ', params);
-        this.llenarCampos()
-
-      });
+    this.idPaciente = localStorage.getItem("paciente.c_i")!;
+    this.llenarCampos();
   }
 
   guardarRegistro() {

@@ -25,8 +25,10 @@ export class RegistroVacunaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   findPaciente(){
-    //this.paciente.id = 'hola enstic'
+    //this.paciente.id = 'hola enstic';
     //this.paciente.nombres="encontrado" 
 
     console.log(this.paciente); 
@@ -36,10 +38,12 @@ export class RegistroVacunaComponent implements OnInit {
         this.paciente = this.aux[0];
         console.log(this.paciente);
         if(this.paciente.c_i != undefined){
-          this.route.navigate(['/registro_form'], { queryParams: { Paciente: this.paciente.c_i}});
+          localStorage.setItem("paciente.c_i", this.paciente.c_i);
+          this.route.navigate(['/registro_form']);
         }
       }
     );
   }
+
 
 }

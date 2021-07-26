@@ -31,38 +31,14 @@ export class PacienteService {
   }
   getPacienteById(paciente: Paciente){
     
-    /*var Pacientesss = this.db.collection("Paciente").valueChanges().where("c_i", "==", "1105666042")({
-      nombres: "Antse"
-    });
-    Pacientesss.subscribe(
-      result => {
-        this.pacientesTotales = result;
-        var aux: Paciente;
-        for(let p of this.pacientesTotales){
-          aux = p;
-          if(aux.c_i === paciente.c_i){
-            this.pacienteBuscado = aux;
-          }
-        }
-        console.log(this.pacienteBuscado);
-      }
-    )
-    
-    /*this.pacientesDoc = this.db.doc(`Paciente/${paciente.c_i}`);
-    this.pacientesDoc.get().subscribe(
-      result => {
-        console.log(result.data()+"resul")
-      },
-      error => {
-        console.log(error)
-      }
-    );
-    this.pacientesDoc as Paciente;
-    console.log(this.pacientesDoc.c_i)
-    //console.log(this.pacientesDoc.get().subscribe() +" consultado")*/
     return this.db.collection('Paciente', ref => ref.where("c_i", "==", paciente.c_i)).valueChanges();
   }
   postPaciente(){
     
   }
+  /*findResourceByID(id: string) {
+    this.resourcesCollection = this.db.collection(this.COLLECTION_NAME);
+    return this.resourcesCollection.doc(id).valueChanges();
+  }*/
+ 
 }
