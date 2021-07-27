@@ -69,20 +69,25 @@ export class RegistroFormComponent implements OnInit {
     this.llenarCampos();
   }
 
+  obtenerVacunaCentro(){
+    this.vacuna.nombreVacuna = this.selected;
+    for (let v of this.vacunas){
+      if(this.vacuna.nombreVacuna === v.nombreVacuna){
+          this.vacuna.id = v.id;
+          this.vacuna = v;
+      }
+    }
+    this.centro.recinto = this.selected_recinto;
+    for (let c of this.centros){
+      if(this.centro.recinto === c.recinto){
+        this.centro.id = c.id;
+        this.centro = c;
+      }
+    }
+  }
   guardarRegistro() {
     if(this.button === 'Registrar'){
-      this.vacuna.nombreVacuna = this.selected;
-      for (let v of this.vacunas){
-        if(this.vacuna.nombreVacuna === v.nombreVacuna){
-            this.vacuna.id = v.id;
-        }
-      }
-      this.centro.recinto = this.selected_recinto;
-      for (let c of this.centros){
-        if(this.centro.recinto === c.recinto){
-          this.centro.id = c.id;
-        }
-      }
+      this.obtenerVacunaCentro();
       this.registro = {
         fecha_1_dosis: new Date(),
         num_dosis_aplicadas: 1,
@@ -107,6 +112,8 @@ export class RegistroFormComponent implements OnInit {
 
   openDialog(){
     //llamar funcion para llenar vacuna y recinto
+   
+    this.obtenerVacunaCentro();
     const dialogRef = this.dialog.open(ConfirmRegistroComponent, {
       data: { 
         idPaciente: this.paciente.c_i,
