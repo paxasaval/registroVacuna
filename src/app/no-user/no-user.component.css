@@ -1,0 +1,26 @@
+.mat-dialog-content{
+    color: #EA4D4D;
+    display: flex;
+    width: 25em;
+    height: 15em;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    padding-left: 2em;
+    margin: 2em;
+}
+.mat-dialog-content p{
+    font-size: 2em;
+    width: 100%;
+    margin-bottom: 1em;
+}
+.mat-icon{
+    font-size: 5em;
+    height: 50%;
+    margin-right: .75em;
+}
+button{
+    background-color: #EA4D4D;
+}

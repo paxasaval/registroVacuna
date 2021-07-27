@@ -71,6 +71,7 @@ export class RegistroComponent implements OnInit {
   }
 
   fetchPaciente(){
+    this.bandera=false;
     /*this.paciente.c_i = this.idPaciente
     /*this.pacienteService.getPacienteById(this.paciente).subscribe(
       result => {
@@ -94,6 +95,13 @@ export class RegistroComponent implements OnInit {
               this.paciente.id = p.id;
               this.paciente = p;
               this.bandera = true;
+              this.fetchRegistro();
+              this.fetchVacuna();
+              this.fetchProfesional();
+              this.fetchRecinto();
+          }else{
+              //this.bandera = false
+              this.idPaciente = ''
           }
         }
       }
@@ -171,7 +179,7 @@ export class RegistroComponent implements OnInit {
         idPaciente: this.paciente.c_i,
         nombresPaciente: this.paciente.nombres,
         apellidosPaciente: this.paciente.apellidos,
-        fechaNacimientoPaciente: this.paciente.fecha_nacimiento?.getDate(),
+        fechaNacimientoPaciente: this.paciente.fecha_nacimiento,
         domicilio: this.paciente.domicilio,
         sexo: this.paciente.sexo,
         idProfesional: this.profesional.c_i,
@@ -184,7 +192,6 @@ export class RegistroComponent implements OnInit {
         provincia: this.centro.provincia,
         ciudad: this.centro.ciudad,
         recinto: this.centro.recinto
-        
       }
       
     });

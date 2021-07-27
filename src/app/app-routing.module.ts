@@ -16,7 +16,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path:'registro_vacuna',
+    path:'buscar_paciente',
     component: RegistroVacunaComponent,
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
     component: RegistroFormComponent,
   },
   {
-    path:'registro',
+    path:'consulta',
     component: RegistroComponent,
   }
 ];

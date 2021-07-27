@@ -1,6 +1,7 @@
 <mat-dialog-content>
-    <p>Usuario no encontrado</p>
+    <mat-icon aria-hidden="false" aria-label="alert">info</mat-icon>
+    <p>Paciente no encontrado</p>
+    <button mat-button mat-dialog-close (click)="cancelar()">Aceptar</button>
+
 </mat-dialog-content>
-<mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close (click)="cancelar()">Cancel</button>
-  </mat-dialog-actions>
+
