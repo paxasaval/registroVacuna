@@ -12,19 +12,19 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'login',
+    path: '/login',
     component: LoginComponent
   },
   {
-    path:'buscar_paciente',
+    path:'/buscar_paciente',
     component: RegistroVacunaComponent,
   },
   {
-    path:'registro_form',
+    path:'/registro_form',
     component: RegistroFormComponent,
   },
   {
-    path:'consulta',
+    path:'/consulta',
     component: RegistroComponent,
   }
 ];
