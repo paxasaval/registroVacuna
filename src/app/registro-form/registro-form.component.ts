@@ -107,7 +107,24 @@ export class RegistroFormComponent implements OnInit {
 
   openDialog(){
     const dialogRef = this.dialog.open(ConfirmRegistroComponent, {
-      data: { idPaciente: this.paciente.c_i }
+      data: { 
+        idPaciente: this.paciente.c_i,
+        nombresPaciente: this.paciente.nombres,
+        apellidosPaciente: this.paciente.apellidos,
+        fechaNacimientoPaciente: this.paciente.fecha_nacimiento,
+        domicilio: this.paciente.domicilio,
+        sexo: this.paciente.sexo,
+        idProfesional: this.profesional.c_i,
+        nombresProfesional: this.profesional.nombres,
+        apellidosProfesional: this.profesional.apellidos,
+        nombreVacuna: this.vacuna.nombreVacuna,
+        numDosis: this.radioButton,
+        fecha_1_dosis: this.registro.fecha_1_dosis,
+        fecha_2_dosis: this.registro.fecha_2_dosis,
+        provincia: this.centro.provincia,
+        ciudad: this.centro.ciudad,
+        recinto: this.centro.recinto
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
