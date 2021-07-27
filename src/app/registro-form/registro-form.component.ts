@@ -44,6 +44,8 @@ export class RegistroFormComponent implements OnInit {
 
   selected = '';
 
+  selected_recinto = '';
+
   idPaciente = '';
   idProfesional = '';
 
@@ -75,7 +77,7 @@ export class RegistroFormComponent implements OnInit {
     }else{
 
     }
-    console.log(this.selected)
+    console.log(this.selected_recinto)
 
     //this.registroService.addRegistros(this.registro);
   }

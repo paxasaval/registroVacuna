@@ -34,7 +34,7 @@
 
 
 .form-select{
-    height: 2em;
+    height: auto;
     width: 16em;
     color: black;
 }
@@ -96,4 +96,10 @@
 .select-row p{
     margin-top: 1.5em;
     margin-right: 1em;
+}
+.select-recinto{
+    width: 15em;
+}
+.column-recinto{
+    margin-top: 0;
 }

@@ -9,7 +9,8 @@
                     <p>Tipo de Vacuna</p>
                     <mat-form-field class="form-select" appearance="fill">
                         <mat-select [(value)]='selected' class="select-vacuna">
-                            <mat-option *ngFor="let vacuna of vacunas" [value]="vacuna.nombreVacuna">{{vacuna.nombreVacuna}}
+                            <mat-option *ngFor="let vacuna of vacunas" [value]="vacuna.nombreVacuna">
+                                {{vacuna.nombreVacuna}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
@@ -83,22 +84,25 @@
         </mat-card>
         <mat-card class='card info-recinto'>
             <mat-card-header>
-                <mat-card-title>Informacion de Vacunacion</mat-card-title>
+                <mat-card-title>Informacion de Recinto</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <div class="row">
                     <div class="column column-card column-label">
+                        <p>Recinto:</p>
                         <p>Ciudad:</p>
                         <p>Provincia:</p>
-                        <p>Recinto:</p>
                     </div>
-                    <div class="column column-card column-data">
+                    <div class="column column-card column-data column-recinto">
+                        <mat-form-field class="form-select" appearance="fill">
+                            <mat-select [(value)]='selected_recinto' class="select-recinto">
+                                <mat-option *ngFor="let recinto of centros" [value]="recinto.recinto">
+                                    {{recinto.recinto}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
                         <p>{{centro.ciudad}}</p>
-                        <p>{{centro.provincia}}}</p>
-                        <p>{{centro.recinto}}</p>
-                    </div>
-                    <div class="column column-card">
-                        <img class="img-user" src="./../../assets/Asset 6@4x 1.png" alt="">
+                        <p>{{centro.provincia}}</p>
                     </div>
                 </div>
             </mat-card-content>
