@@ -7,11 +7,11 @@
         <mat-card-content>
             <mat-form-field>
                 <mat-label>Cedula del paciente</mat-label>
-                <input matInput placeholder="Cedula del paciente" type="text">
+                <input matInput placeholder="Cedula del paciente"  [(ngModel)]="idPaciente()" type="text">
             </mat-form-field>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button (click)="openDialog()">Buscar</button>
+            <button mat-button (click)="finPaciente()">Buscar</button>
         </mat-card-actions>
     </mat-card>
 </div>
