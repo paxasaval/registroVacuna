@@ -39,6 +39,9 @@ export class RegistroFormComponent implements OnInit {
   radioOptions: string[] = ['Primera Dosis','Segunda Dosis']
   isDis: boolean[] = [false,true];
 
+  button: string = 'Registrar'
+  btn_dis: boolean = false;
+
   idPaciente = '';
   idProfesional = '';
 
@@ -58,15 +61,19 @@ export class RegistroFormComponent implements OnInit {
   }
 
   guardarRegistro() {
-    this.registro = {
-      fecha_1_dosis: new Date(),
-      fecha_2_dosis: new Date(),
-      num_dosis_aplicadas: 1,
-      id_profesional: this.profesional.id,
-      id_paciente: this.paciente.id,
-      id_vacuna: this.vacunas[0].id,
-      id_centro: this.centros[0].id
+    if(this.button=='Registro'){
+      this.registro = {
+        fecha_1_dosis: new Date(),
+        num_dosis_aplicadas: 1,
+        id_profesional: this.profesional.id,
+        id_paciente: this.paciente.id,
+        id_vacuna: this.vacunas[0].id,
+        id_centro: this.centros[0].id
+      }
+    }else{
+
     }
+
     //this.registroService.addRegistros(this.registro);
   }
   comprobrarDosis(){
@@ -75,10 +82,12 @@ export class RegistroFormComponent implements OnInit {
         if(r.num_dosis_aplicadas == 1){
           this.isDis[0] = true;
           this.isDis[1] = false;
+          this.button = 'Actualizar'
         }
         else if (r.num_dosis_aplicadas == 2){
           this.isDis[0] = true;
           this.isDis[1] = true;
+          this.btn_dis=true
         }
       }
     }
