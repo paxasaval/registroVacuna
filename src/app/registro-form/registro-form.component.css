@@ -31,15 +31,15 @@
     margin-top: 2em;
     height: auto;
 }
-.select-vacuna{
-    width: 50%;
-}
+
 
 .form-select{
     height: 2em;
     width: 16em;
     color: black;
 }
+
+
 .mat-card-content{
     display: flex;
     margin-top: 3em;
@@ -89,4 +89,11 @@
 .column-data{
     width: auto;
     flex-grow: 4;
+}
+.select-row{
+    height: 5em;
+}
+.select-row p{
+    margin-top: 1.5em;
+    margin-right: 1em;
 }
