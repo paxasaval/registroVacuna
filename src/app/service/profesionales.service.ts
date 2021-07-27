@@ -1,7 +1,7 @@
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Profesional } from './../models/profesional';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,7 +12,8 @@ export class ProfesionalesService {
   profesionalCollection!: AngularFirestoreCollection<Profesional>;
   profesionales!: Observable<Profesional[]>;
   profesionalesDoc!: AngularFirestoreDocument<Profesional>;
-
+  userSub = new Subject();
+  $userSub = this.userSub.asObservable();
 
   constructor(public db: AngularFirestore) {
     this.profesionalCollection = this.db.collection('Profesional');
@@ -31,7 +32,11 @@ export class ProfesionalesService {
   getProfesionalByCI(profesional: Profesional){
     return this.db.collection('Profesional', ref => ref.where("c_i", "==", profesional.c_i)).valueChanges();
   }
+
+  setUserSub(){
+    this.userSub.next();
+  }
   postProfesional(){
-    
+
   }
 }

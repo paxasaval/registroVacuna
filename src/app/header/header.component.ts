@@ -9,25 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  profesional: Profesional= {
-    nombres: 'Sofia Becerra'
-  }
+  profesional: Profesional= {};
 
   constructor(private profesionalService: ProfesionalesService) { }
 
   ngOnInit(): void {
 
-    /*
-      this.profesionalService.getProfesionalById().subscribe(
-        result => {
-          console.log(result)
-          this.profesional = result
-        })
-
-
-    */
-    this.profesional.c_i = localStorage.getItem('profesional.c_i')!;
-    this.profesional.nombres = localStorage.getItem('profesional.nombres')!;
+    this.profesionalService.$userSub.subscribe(()=>{
+      this.profesional.c_i = localStorage.getItem('profesional.c_i')!;
+      this.profesional.nombres = localStorage.getItem('profesional.nombres')!;
+    })
   }
 
 

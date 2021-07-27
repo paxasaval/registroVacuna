@@ -9,16 +9,16 @@
                     <p>Tipo de Vacuna</p>
                     <mat-form-field class="form-select" appearance="fill">
                         <mat-select class="select-vacuna">
-                            <mat-option  *ngFor="let vacuna of vacunas"
-                                value="vacuna">{{vacuna.nombreVacuna}}</mat-option>
+                            <mat-option *ngFor="let vacuna of vacunas" value="vacuna">{{vacuna.nombreVacuna}}
+                            </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
                 <div class="row button-group">
                     <p>Dosis</p>
-                    <mat-radio-group aria-label="Selecione una dosis">
-                        <mat-radio-button value="1">Primera Dosis</mat-radio-button>
-                        <mat-radio-button value="2">Segunda Dosis</mat-radio-button>
+                    <mat-radio-group [(ngModel)]="radioButton" aria-label="Selecione una dosis">
+                        <mat-radio-button *ngFor="let op of radioOptions" [disabled]="isDis[radioOptions.indexOf(op)]"
+                            [value]="op" [id]="op">{{op}}</mat-radio-button>
                     </mat-radio-group>
                 </div>
             </mat-card-content>
@@ -44,7 +44,7 @@
                     </div>
                     <div class="column column-card">
                         <img class="img-user" src="./../../assets/Asset 6@4x 1.png" alt="">
-                    </div> 
+                    </div>
                 </div>
             </mat-card-content>
             <mat-card-actions></mat-card-actions>
@@ -75,7 +75,7 @@
                     </div>
                     <div class="column column-card">
                         <img class="img-user" src="./../../assets/Asset 6@4x 1.png" alt="">
-                    </div> 
+                    </div>
                 </div>
             </mat-card-content>
             <mat-card-actions>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="column column-card">
                         <img class="img-user" src="./../../assets/Asset 6@4x 1.png" alt="">
-                    </div> 
+                    </div>
                 </div>
             </mat-card-content>
             <mat-card-actions>

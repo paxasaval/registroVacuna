@@ -27,15 +27,10 @@ export class RegistroVacunaComponent implements OnInit {
 
 
   findPaciente(){
-    //this.paciente.id = 'hola enstic';
-    //this.paciente.nombres="encontrado" 
-
-    console.log(this.paciente); 
     this.pacienteService.getPacienteById(this.paciente).subscribe(
       result =>{
         this.aux = result;
         this.paciente = this.aux[0];
-        console.log(this.paciente);
         if(this.paciente.c_i != undefined){
           localStorage.setItem("paciente.c_i", this.paciente.c_i);
           this.route.navigate(['/registro_form']);
@@ -43,6 +38,4 @@ export class RegistroVacunaComponent implements OnInit {
       }
     );
   }
-
-
 }

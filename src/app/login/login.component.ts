@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
           if (usuario && password){
             localStorage.setItem("profesional.c_i", this.profesional.c_i);
             localStorage.setItem("profesional.nombres", this.profesional.nombres!);
+            this.profesionalesService.setUserSub();
             this.route.navigate(['/registro_vacuna']);
           }
         }

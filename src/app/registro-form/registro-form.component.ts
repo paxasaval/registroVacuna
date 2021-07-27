@@ -2,6 +2,7 @@ import { PacienteService } from './../service/paciente.service';
 import { ProfesionalesService } from './../service/profesionales.service';
 import { CentrosService } from './../service/centros.service';
 import { VacunaService } from './../service/vacuna.service';
+import { RegistroService } from '../service/registro.service';
 import { Profesional } from './../models/profesional';
 import { Vacuna } from './../models/vacuna';
 import { Paciente } from './../models/paciente';
@@ -9,6 +10,7 @@ import { Centro } from './../models/centro';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Registro } from '../models/registro';
+
 
 
 @Component({
@@ -21,8 +23,10 @@ export class RegistroFormComponent implements OnInit {
   page = 0;
   //models
   vacunas: Vacuna[] = [];
-  profesionales: any[] = []
+  profesionales: any[] = [];
   centros: Centro[] = [];
+  pacientes: Paciente[] = [];
+  registros: Registro[] = [];
 
   registro: Registro = {};
   vacuna: Vacuna = {};
@@ -30,6 +34,10 @@ export class RegistroFormComponent implements OnInit {
   paciente: Paciente = {};
   centro: Centro = {};
   aux: any[] = [];
+
+  radioButton!: string;
+  radioOptions: string[] = ['Primera Dosis','Segunda Dosis']
+  isDis: boolean[] = [false,true];
 
   idPaciente = '';
   idProfesional = '';
@@ -40,7 +48,8 @@ export class RegistroFormComponent implements OnInit {
     private vacunaService: VacunaService,
     private centroService: CentrosService,
     private profesionalService: ProfesionalesService,
-    private pacienteService: PacienteService) { }
+    private pacienteService: PacienteService,
+    private registroService: RegistroService) { }
 
   ngOnInit(): void {
     this.paciente.c_i = localStorage.getItem("paciente.c_i")!;
@@ -55,10 +64,27 @@ export class RegistroFormComponent implements OnInit {
       num_dosis_aplicadas: 1,
       id_profesional: this.profesional.id,
       id_paciente: this.paciente.id,
-      id_vacuna: this.vacuna.id,
-      id_centro: this.centro.id
+      id_vacuna: this.vacunas[0].id,
+      id_centro: this.centros[0].id
     }
-    //this.registroService.pushRegistro(this.registro)
+    //this.registroService.addRegistros(this.registro);
+  }
+  comprobrarDosis(){
+    for (let r of this.registros){
+      if (this.paciente.id === r.id_paciente){
+        if(r.num_dosis_aplicadas == 1){
+          this.isDis[0] = true;
+          this.isDis[1] = false;
+        }
+        else if (r.num_dosis_aplicadas == 2){
+          this.isDis[0] = true;
+          this.isDis[1] = true;
+        }
+      }
+    }
+  }
+  isDisable(){
+    this.isDis[0]=true;
   }
   llenarCampos() {
     this.pacienteService.getPacienteById(this.paciente).subscribe(
@@ -68,7 +94,6 @@ export class RegistroFormComponent implements OnInit {
         this.paciente.fecha_nacimiento= this.aux[0].fecha_nacimiento.toDate();
       }
     )
-    console.log(this.vacunas)
     this.profesionalService.getProfesionalByCI(this.profesional).subscribe(
       result => {
         this.aux = result;
@@ -87,7 +112,33 @@ export class RegistroFormComponent implements OnInit {
     this.centroService.getAllCentro().subscribe(
       result => {
         this.centros = result;
-        console.log(this.centros)
+        //this.isDisable();
+      }
+    )
+    this.profesionalService.getAllProfesional().subscribe(
+      result => {
+        this.profesionales = result;
+        for (let p of this.profesionales){
+            if(this.profesional.c_i === p.c_i){
+              this.profesional.id = p.id;
+            }
+        }
+      }
+    )
+    this.pacienteService.getAllPaciente().subscribe(
+      result => {
+        this.pacientes = result;
+        for (let p of this.pacientes){
+          if(this.paciente.c_i === p.c_i){
+              this.paciente.id = p.id;
+          }
+        }
+      }
+    )
+    this.registroService.getRegistros().subscribe(
+      result => {
+        this.registros = result;
+        this.comprobrarDosis();
       }
     )
     /*
