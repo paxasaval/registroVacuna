@@ -13,6 +13,7 @@ import { ConfirmRegistroComponent } from './../confirm-registro/confirm-registro
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -25,6 +26,7 @@ export class RegistroComponent implements OnInit {
   centro: Centro = {}
   registro: Registro = {}
   vacuna: Vacuna = {}
+  bandera: boolean = false;
 
   idPaciente = '';
 
@@ -47,6 +49,18 @@ export class RegistroComponent implements OnInit {
     });
   }
 
+  findPaciente(ob: Event){
+    console.log(this.idPaciente)
+    //ejecutar
+  }
+  openInfo(){
+    if(this.bandera){
+      this.openDialog()
+    }else{
+      this.openDialogError()
+    }
+  }
+
   fetchPaciente(){
     this.paciente.c_i = this.idPaciente
     this.pacienteService.getPacienteById(this.paciente).subscribe(
@@ -55,7 +69,7 @@ export class RegistroComponent implements OnInit {
         if(aux[0] != undefined){
           this.paciente = aux[0]
           //ejecutar fetch(s)
-          this.openDialog()
+          //this.openDialog()
 
         }else{
           this.openDialogError()
