@@ -30,6 +30,7 @@ export class RegistroFormComponent implements OnInit {
   aux: any[] = [];
 
   idPaciente = '';
+  idProfesional = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -41,6 +42,7 @@ export class RegistroFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.idPaciente = localStorage.getItem("paciente.c_i")!;
+    this.idProfesional = localStorage.getItem("profesional.c_i")!;
     this.llenarCampos();
   }
 
@@ -65,20 +67,6 @@ export class RegistroFormComponent implements OnInit {
         this.paciente.fecha_nacimiento= this.aux[0].fecha_nacimiento.toDate();
       }
     )
-    /*this.vacunas = [
-      {
-       nombreVacuna: 'fizer'
-      },
-      {
-        nombreVacuna: 'cinobac'
-      }];*/
-    /*this.paciente = {
-      nombres: 'lsdfkssd',
-      apellidos: 'kldsfja',
-      c_i: 'sad;lkf;aldks',
-      fecha_nacimiento: 'lwkdfadldkds',
-      sexo:"sdlmfladsdkm"
-    }*/
     console.log(this.vacunas)
     this.profesionalService.getAllProfesional().subscribe(
       result => {
@@ -90,13 +78,12 @@ export class RegistroFormComponent implements OnInit {
       }
     )
 
-
-
     this.vacunaService.getAllVacuna().subscribe(
       result => {
         this.vacunas = result
       }
     )
+      
     /*
     this.centroService.getCentroById().subscribe(
       result =>{

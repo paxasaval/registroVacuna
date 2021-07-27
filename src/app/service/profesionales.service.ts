@@ -1,21 +1,37 @@
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Profesional } from './../models/profesional';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfesionalesService {
 
-  constructor(private db: AngularFirestore) { }
-  getAllProfesional(){
-    return this.db.collection('Profesional').valueChanges()
-  }
-  getProfesionalById(){
+  profesionalCollection!: AngularFirestoreCollection<Profesional>;
+  profesionales!: Observable<Profesional[]>;
+  profesionalesDoc!: AngularFirestoreDocument<Profesional>;
 
+
+  constructor(public db: AngularFirestore) {
+    this.profesionalCollection = this.db.collection('Profesional');
+    this.profesionales = this.profesionalCollection.snapshotChanges().pipe(map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Profesional;
+        data.id = a.payload.doc.id;
+        return data;
+      })
+    }))
+   }
+
+  getAllProfesional(){
+    return this.profesionales;
+  }
+  getProfesionalByCI(profesional: Profesional){
+    return this.db.collection('Profesional', ref => ref.where("c_i", "==", profesional.c_i)).valueChanges();
   }
   postProfesional(){
-
+    
   }
 }

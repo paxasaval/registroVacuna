@@ -26,7 +26,8 @@ export class HeaderComponent implements OnInit {
 
 
     */
-    this.profesionalService.getProfesionalById()
+    this.profesional.c_i = localStorage.getItem('profesional.c_i')!;
+    this.profesional.nombres = localStorage.getItem('profesional.nombres')!;
   }
 
 

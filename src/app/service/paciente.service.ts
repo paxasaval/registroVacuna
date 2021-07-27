@@ -30,7 +30,6 @@ export class PacienteService {
     return this.pacientes;
   }
   getPacienteById(paciente: Paciente){
-    
     return this.db.collection('Paciente', ref => ref.where("c_i", "==", paciente.c_i)).valueChanges();
   }
   postPaciente(){

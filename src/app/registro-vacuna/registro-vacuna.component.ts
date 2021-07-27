@@ -2,7 +2,6 @@ import { Paciente } from './../models/paciente';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PacienteService } from './../service/paciente.service';
-import { FormsModule } from '@angular/forms';
 
 
 @Component({
