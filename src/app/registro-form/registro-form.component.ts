@@ -20,13 +20,15 @@ export class RegistroFormComponent implements OnInit {
 
   page = 0;
   //models
+  vacunas: Vacuna[] = [];
+  profesionales: any[] = []
+  centros: Centro[] = [];
+
   registro: Registro = {};
   vacuna: Vacuna = {};
-  vacunas: Vacuna[] = [];
   profesional: Profesional = {}
   paciente: Paciente = {};
   centro: Centro = {};
-  profesionales: any[] = []
   aux: any[] = [];
 
   idPaciente = '';
@@ -82,7 +84,12 @@ export class RegistroFormComponent implements OnInit {
         this.vacunas = result
       }
     )
-      
+    this.centroService.getAllCentro().subscribe(
+      result => {
+        this.centros = result;
+        console.log(this.centros)
+      }
+    )
     /*
     this.centroService.getCentroById().subscribe(
       result =>{
