@@ -3,7 +3,7 @@ import { RegistroFormComponent } from './registro-form/registro-form.component';
 import { RegistroVacunaComponent } from './registro-vacuna/registro-vacuna.component';
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -30,7 +30,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes,{preloadingStrategy: PreloadAllModules})],
+  exports: [RouterModule],
+  
 })
 export class AppRoutingModule { }
