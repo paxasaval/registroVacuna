@@ -11,20 +11,22 @@ const routes: Routes = [
     redirectTo: '/login',
     pathMatch: 'full'
   },
-  {
-    path: '/login',
+  { 
+    path: 'login',
+    pathMatch: 'full',
     component: LoginComponent
   },
   {
-    path:'/buscar_paciente',
+    path:'buscar_paciente',
+    pathMatch: 'full',
     component: RegistroVacunaComponent,
   },
   {
-    path:'/registro_form',
+    path:'registro_form',
     component: RegistroFormComponent,
   },
   {
-    path:'/consulta',
+    path:'consulta',
     component: RegistroComponent,
   }
 ];

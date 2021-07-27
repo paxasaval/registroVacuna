@@ -53,6 +53,6 @@ import { LocationStrategy, HashLocationStrategy} from '@angular/common';
     FirebaseService,
     
   ],
-  bootstrap: [AppComponent,]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
