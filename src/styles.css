@@ -70,6 +70,8 @@ input{
 .mat-select-value{
     color: black;
 }
-.mat-form-field-flex{
-
+.mat-dialog-container{
+    background: #FFFFFF;
+    color: black;
+    padding: 0 !important;
 }

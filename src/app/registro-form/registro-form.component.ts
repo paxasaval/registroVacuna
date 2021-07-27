@@ -1,3 +1,5 @@
+import { ConfirmRegistroComponent } from './../confirm-registro/confirm-registro.component';
+import { Alert2DosisComponent } from './../alert2-dosis/alert2-dosis.component';
 import { PacienteService } from './../service/paciente.service';
 import { ProfesionalesService } from './../service/profesionales.service';
 import { CentrosService } from './../service/centros.service';
@@ -10,6 +12,8 @@ import { Centro } from './../models/centro';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Registro } from '../models/registro';
+import {MatDialog} from '@angular/material/dialog';
+
 
 
 
@@ -56,7 +60,8 @@ export class RegistroFormComponent implements OnInit {
     private centroService: CentrosService,
     private profesionalService: ProfesionalesService,
     private pacienteService: PacienteService,
-    private registroService: RegistroService) { }
+    private registroService: RegistroService,
+    private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.paciente.c_i = localStorage.getItem("paciente.c_i")!;
@@ -95,9 +100,22 @@ export class RegistroFormComponent implements OnInit {
       this.registroService.updateRegistro(this.registro);
     }
     console.log(this.selected_recinto)
+    
 
     //this.registroService.addRegistros(this.registro);
   }
+
+  openDialog(){
+    const dialogRef = this.dialog.open(ConfirmRegistroComponent, {
+      data: { idPaciente: this.paciente.c_i }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      this.guardarRegistro();
+    });
+  }
+
   comprobrarDosis(){
     for (let r of this.registros){
       if (this.paciente.id === r.id_paciente){

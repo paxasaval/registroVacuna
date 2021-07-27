@@ -16,7 +16,11 @@ import { AngularFirestoreModule } from '@angular/fire/firestore'
 import { environment } from '../environments/environment'
 import { AngularFireModule } from '@angular/fire'
 //service
-import { FirebaseService } from './service/firebase.service'
+import { FirebaseService } from './service/firebase.service';
+import { Alert2DosisComponent } from './alert2-dosis/alert2-dosis.component';
+import { InfoRegistroComponent } from './info-registro/info-registro.component';
+import { NoUserComponent } from './no-user/no-user.component';
+import { ConfirmRegistroComponent } from './confirm-registro/confirm-registro.component'
 
 
 @NgModule({
@@ -26,7 +30,11 @@ import { FirebaseService } from './service/firebase.service'
     HeaderComponent,
     RegistroVacunaComponent,
     RegistroComponent,
-    RegistroFormComponent
+    RegistroFormComponent,
+    Alert2DosisComponent,
+    InfoRegistroComponent,
+    NoUserComponent,
+    ConfirmRegistroComponent
   ],
   imports: [
     FormsModule,
