@@ -21,7 +21,7 @@ import { Alert2DosisComponent } from './alert2-dosis/alert2-dosis.component';
 import { InfoRegistroComponent } from './info-registro/info-registro.component';
 import { NoUserComponent } from './no-user/no-user.component';
 import { ConfirmRegistroComponent } from './confirm-registro/confirm-registro.component'
-
+import { LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -49,8 +49,10 @@ import { ConfirmRegistroComponent } from './confirm-registro/confirm-registro.co
     HttpClientModule
   ],
   providers: [
-    FirebaseService
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    FirebaseService,
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,]
 })
 export class AppModule { }
