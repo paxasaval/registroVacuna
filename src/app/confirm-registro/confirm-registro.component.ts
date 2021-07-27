@@ -26,13 +26,18 @@ export class ConfirmRegistroComponent implements OnInit {
       fecha_2_dosis: Date,
       provincia: string,
       ciudad: string,
-      recinto: string
+      recinto: string,
+      btn_text: string
     }) { }
 
   ngOnInit(): void {
-    console.log(this.data.idPaciente)
+    var time = this.data.fecha_1_dosis as Date
+    console.log(document.getElementById('print'))
   }
   confirmar() {
-    this.dialogRef.close()
+    if (this.data.btn_text == "Imprimir") {
+      window.print()
+    }
+    //this.dialogRef.close()
   }
 }

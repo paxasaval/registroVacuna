@@ -3,6 +3,7 @@
 }
 .mat-dialog-content{
     padding: 0;
+    padding-left: 2em;
 }
 .main{
     display: flex;

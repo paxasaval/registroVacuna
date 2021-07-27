@@ -3,7 +3,7 @@ export interface Paciente {
     c_i?: string;
     apellidos?: string;
     nombres?: string;
-    fecha_nacimiento?: string;
+    fecha_nacimiento?: Date;
     domicilio?: string;
     sexo?: string;
 }

@@ -114,12 +114,17 @@ export class RegistroFormComponent implements OnInit {
     //llamar funcion para llenar vacuna y recinto
    
     this.obtenerVacunaCentro();
+    if(this.radioButton==='Primera Dosis'){
+      this.registro.fecha_1_dosis = new Date()
+    }else{
+      this.registro.fecha_2_dosis = new Date()
+    }
     const dialogRef = this.dialog.open(ConfirmRegistroComponent, {
       data: { 
         idPaciente: this.paciente.c_i,
         nombresPaciente: this.paciente.nombres,
         apellidosPaciente: this.paciente.apellidos,
-        fechaNacimientoPaciente: this.paciente.fecha_nacimiento,
+        fechaNacimientoPaciente: this.paciente.fecha_nacimiento?.getDate(),
         domicilio: this.paciente.domicilio,
         sexo: this.paciente.sexo,
         idProfesional: this.profesional.c_i,
@@ -131,7 +136,8 @@ export class RegistroFormComponent implements OnInit {
         fecha_2_dosis: this.registro.fecha_2_dosis,
         provincia: this.centro.provincia,
         ciudad: this.centro.ciudad,
-        recinto: this.centro.recinto
+        recinto: this.centro.recinto,
+        btn_text: 'Confirmar'
       }
     });
 
