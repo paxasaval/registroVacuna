@@ -106,6 +106,7 @@ export class RegistroFormComponent implements OnInit {
   }
 
   openDialog(){
+    //llamar funcion para llenar vacuna y recinto
     const dialogRef = this.dialog.open(ConfirmRegistroComponent, {
       data: { 
         idPaciente: this.paciente.c_i,
@@ -118,7 +119,7 @@ export class RegistroFormComponent implements OnInit {
         nombresProfesional: this.profesional.nombres,
         apellidosProfesional: this.profesional.apellidos,
         nombreVacuna: this.vacuna.nombreVacuna,
-        numDosis: this.radioButton,
+        dosis: this.radioButton,
         fecha_1_dosis: this.registro.fecha_1_dosis,
         fecha_2_dosis: this.registro.fecha_2_dosis,
         provincia: this.centro.provincia,
