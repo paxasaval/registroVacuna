@@ -26,7 +26,7 @@ export class RegistroComponent implements OnInit {
   centro: Centro = {}
   registro: Registro = {}
   vacuna: Vacuna = {}
-  bandera: boolean = false;
+  bandera: boolean = true;
 
   idPaciente = '';
 
@@ -51,7 +51,7 @@ export class RegistroComponent implements OnInit {
 
   findPaciente(ob: Event){
     console.log(this.idPaciente)
-    //ejecutar
+    this.fetchPaciente()
   }
   openInfo(){
     if(this.bandera){
@@ -68,11 +68,11 @@ export class RegistroComponent implements OnInit {
         let aux: any[] = result;
         if(aux[0] != undefined){
           this.paciente = aux[0]
-          //ejecutar fetch(s)
-          //this.openDialog()
+          this.bandera = true;
+          console.log(result.values)
 
         }else{
-          this.openDialogError()
+          //this.openDialogError()
         }
       }
     )

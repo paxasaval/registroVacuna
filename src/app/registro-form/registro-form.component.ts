@@ -144,6 +144,7 @@ export class RegistroFormComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       this.guardarRegistro();
+      this.router.navigate(['/registro_vacuna'])
     });
   }
 

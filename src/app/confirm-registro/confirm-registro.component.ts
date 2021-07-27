@@ -37,6 +37,9 @@ export class ConfirmRegistroComponent implements OnInit {
   confirmar() {
     if (this.data.btn_text == "Imprimir") {
       window.print()
+      this.dialogRef.close()
+    }else{
+      this.dialogRef.close()
     }
     //this.dialogRef.close()
   }
