@@ -65,17 +65,34 @@ export class RegistroFormComponent implements OnInit {
   }
 
   guardarRegistro() {
-    if(this.button=='Registro'){
+    if(this.button === 'Registrar'){
+      this.vacuna.nombreVacuna = this.selected;
+      for (let v of this.vacunas){
+        if(this.vacuna.nombreVacuna === v.nombreVacuna){
+            this.vacuna.id = v.id;
+        }
+      }
+      this.centro.recinto = this.selected_recinto;
+      for (let c of this.centros){
+        if(this.centro.recinto === c.recinto){
+          this.centro.id = c.id;
+        }
+      }
       this.registro = {
         fecha_1_dosis: new Date(),
         num_dosis_aplicadas: 1,
         id_profesional: this.profesional.id,
         id_paciente: this.paciente.id,
-        id_vacuna: this.vacunas[0].id,
-        id_centro: this.centros[0].id
+        id_vacuna: this.vacuna.id,
+        id_centro: this.centro.id
       }
+      //console.log(this.registro);
+      this.registroService.addRegistros(this.registro);
     }else{
-
+      this.registro.fecha_2_dosis = new Date(),
+      this.registro.num_dosis_aplicadas = 2;
+      console.log(this.registro);
+      this.registroService.updateRegistro(this.registro);
     }
     console.log(this.selected_recinto)
 
@@ -88,6 +105,7 @@ export class RegistroFormComponent implements OnInit {
           this.isDis[0] = true;
           this.isDis[1] = false;
           this.button = 'Actualizar'
+          this.registro = r;
         }
         else if (r.num_dosis_aplicadas == 2){
           this.isDis[0] = true;

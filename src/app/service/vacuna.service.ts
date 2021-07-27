@@ -24,9 +24,8 @@ export class VacunaService {
   }
   getAllVacuna(){
     return this.vacunas;
-    console.log(this.vacunas);
   }
-  getVacunaById(){
-    
+  getVacunaById(vacuna : Vacuna){
+    return this.db.collection('Vacuna', ref => ref.where("nombreVacuna", "==", vacuna.nombreVacuna)).valueChanges();
   }
 }
