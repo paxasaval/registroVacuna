@@ -41,8 +41,8 @@ export class RegistroFormComponent implements OnInit {
     private pacienteService: PacienteService) { }
 
   ngOnInit(): void {
-    this.idPaciente = localStorage.getItem("paciente.c_i")!;
-    this.idProfesional = localStorage.getItem("profesional.c_i")!;
+    this.paciente.c_i = localStorage.getItem("paciente.c_i")!;
+    this.profesional.c_i = localStorage.getItem("profesional.c_i")!;
     this.llenarCampos();
   }
 
@@ -59,7 +59,6 @@ export class RegistroFormComponent implements OnInit {
     //this.registroService.pushRegistro(this.registro)
   }
   llenarCampos() {
-    this.paciente.c_i = this.idPaciente;
     this.pacienteService.getPacienteById(this.paciente).subscribe(
       result => {
         this.aux = result;
@@ -68,10 +67,10 @@ export class RegistroFormComponent implements OnInit {
       }
     )
     console.log(this.vacunas)
-    this.profesionalService.getAllProfesional().subscribe(
+    this.profesionalService.getProfesionalByCI(this.profesional).subscribe(
       result => {
-        this.profesionales = result
-        this.profesional = this.profesionales[0]
+        this.aux = result;
+        this.profesional = this.aux[0];
       },
       error => {
         console.log(error)

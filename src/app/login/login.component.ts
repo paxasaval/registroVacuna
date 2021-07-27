@@ -25,16 +25,25 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
+    var usuario = false;
+    var password = false;
+
     this.profesional.c_i = this.c_i;
+
     this.profesionalesService.getProfesionalByCI(this.profesional).subscribe(
       result =>{
         this.aux = result;
         this.profesional = this.aux[0];
-        console.log(this.profesional);
         if(this.profesional.c_i != undefined){
-          localStorage.setItem("profesional.c_i", this.profesional.c_i);
-          localStorage.setItem("profesional.nombres", this.profesional.nombres!);
-          this.route.navigate(['/registro_vacuna']);
+          usuario = true;
+          if (this.profesional.contrasena === this.pass){
+            password = true;
+          }
+          if (usuario && password){
+            localStorage.setItem("profesional.c_i", this.profesional.c_i);
+            localStorage.setItem("profesional.nombres", this.profesional.nombres!);
+            this.route.navigate(['/registro_vacuna']);
+          }
         }
       }
     );
