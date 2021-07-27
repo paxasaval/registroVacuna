@@ -39,7 +39,7 @@ export class ConfirmRegistroComponent implements OnInit {
       window.print()
       this.dialogRef.close()
     }else{
-      this.dialogRef.close()
+      this.dialogRef.close('confirmar')
     }
     //this.dialogRef.close()
   }

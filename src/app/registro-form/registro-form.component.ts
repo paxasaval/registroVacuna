@@ -101,10 +101,10 @@ export class RegistroFormComponent implements OnInit {
     }else{
       this.registro.fecha_2_dosis = new Date(),
       this.registro.num_dosis_aplicadas = 2;
-      console.log(this.registro);
+     //console.log(this.registro);
       this.registroService.updateRegistro(this.registro);
     }
-    console.log(this.selected_recinto)
+    //console.log(this.selected_recinto)
     
 
     //this.registroService.addRegistros(this.registro);
@@ -142,9 +142,11 @@ export class RegistroFormComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
-      this.guardarRegistro();
-      this.router.navigate(['/registro_vacuna'])
+      console.log(result)
+      if(result==='confirmar'){
+        this.guardarRegistro();
+        this.router.navigate(['/buscar_paciente'])
+      }      
     });
   }
 
