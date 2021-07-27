@@ -42,6 +42,8 @@ export class RegistroFormComponent implements OnInit {
   button: string = 'Registrar'
   btn_dis: boolean = false;
 
+  selected = '';
+
   idPaciente = '';
   idProfesional = '';
 
@@ -73,6 +75,7 @@ export class RegistroFormComponent implements OnInit {
     }else{
 
     }
+    console.log(this.selected)
 
     //this.registroService.addRegistros(this.registro);
   }

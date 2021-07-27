@@ -8,8 +8,8 @@
                 <div class="row select-row">
                     <p>Tipo de Vacuna</p>
                     <mat-form-field class="form-select" appearance="fill">
-                        <mat-select class="select-vacuna">
-                            <mat-option *ngFor="let vacuna of vacunas" value="vacuna">{{vacuna.nombreVacuna}}
+                        <mat-select [(value)]='selected' class="select-vacuna">
+                            <mat-option *ngFor="let vacuna of vacunas" [value]="vacuna.nombreVacuna">{{vacuna.nombreVacuna}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
